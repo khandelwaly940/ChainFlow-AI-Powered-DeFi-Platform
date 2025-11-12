@@ -1,0 +1,27 @@
+{
+  "name": "@chainflow/contracts",
+  "version": "1.0.0",
+  "description": "ChainFlow smart contracts",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:amoy": "hardhat run scripts/deploy.ts --network polygon_amoy",
+    "deploy:core": "hardhat run scripts/deploy-lending-core.ts --network polygon_amoy",
+    "deploy:local": "hardhat run scripts/test-local.ts --network localhost",
+    "setup:demo": "hardhat run scripts/setup-local-demo.ts --network localhost",
+    "node": "hardhat node"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@openzeppelin/contracts": "^5.0.0",
+    "@types/node": "^20.0.0",
+    "hardhat": "^2.19.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "@chainlink/contracts": "^1.0.0",
+    "dotenv": "^16.3.1"
+  }
+}
+
