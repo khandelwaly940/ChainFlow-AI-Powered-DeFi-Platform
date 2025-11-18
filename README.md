@@ -1,8 +1,8 @@
-# 🚀 ChainFlow — AI-Powered DeFi Lending Platform
+# ChainFlow — AI-Powered DeFi Lending Platform
 
 <div align="center">
 
-![ChainFlow Logo](https://via.placeholder.com/200x200/6366f1/ffffff?text=ChainFlow)
+
 
 **Blending AI Credit Scoring with On-Chain Lending for Capital-Efficient DeFi**
 
@@ -39,7 +39,7 @@
 
 ## 🎨 UI Screenshots
 
-> **Note**: Add your UI screenshots here to showcase the modern, polished interface
+
 
 ### Dashboard
 <!-- ![Dashboard Screenshot](screenshots/dashboard.png) -->
@@ -517,7 +517,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 👥 Authors
 
-- **Your Name** - [@yourusername](https://github.com/yourusername)
+- **Yash Khandelwal** - [@khandelwaly940](https://github.com/khandelwaly940)
 
 ---
 
@@ -527,13 +527,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 - [Chainlink](https://chain.link/) for price oracle infrastructure
 - [wagmi](https://wagmi.sh/) and [RainbowKit](https://rainbowkit.com/) for wallet integration
 - [Hardhat](https://hardhat.org/) for development environment
-
----
-
-## 📞 Contact & Support
-
-- **Issues**: [GitHub Issues](https://github.com/yourusername/chainflow/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/chainflow/discussions)
 
 ---
 
