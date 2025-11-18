@@ -42,15 +42,15 @@
 
 
 ### Dashboard
-[Dashboard Screenshot](screenshots/dashboard.png)
+![Dashboard Screenshot](screenshots/dashboard.png)
 *Credit score visualization, tier badges, and score signals*
 
 ### Borrow Interface
-[Borrow Screenshot](screenshots/borrow.png)
+![Borrow Screenshot](screenshots/borrow.png)
 *Live LTV calculator, collateral input, and loan opening flow*
 
 ### Positions View
-[Positions Screenshot](screenshots/positions.png)
+![Positions Screenshot](screenshots/positions.png)
 *Loan details, health factor monitoring, and repayment interface*
 
 ---
