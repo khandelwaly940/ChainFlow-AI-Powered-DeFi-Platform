@@ -18,6 +18,8 @@ app.use(express.json());
 const rpcUrl = process.env.RPC_URL || process.env.POLYGON_AMOY_RPC;
 const privateKey = process.env.PRIVATE_KEY;
 const registryAddress = process.env.SCORE_REGISTRY_ADDRESS || process.env.SCORE_REGISTRY;
+const coreAddress = process.env.LENDING_CORE_ADDRESS || process.env.CORE_ADDRESS;
+const usdcAddress = process.env.USDC_ADDRESS;
 
 if (!rpcUrl || !privateKey || !registryAddress) {
   console.error("Missing required environment variables");
@@ -29,6 +31,8 @@ const wallet = new ethers.Wallet(privateKey, provider);
 
 console.log("API wallet address:", wallet.address);
 console.log("Score registry:", registryAddress);
+console.log("Lending Core:", coreAddress || "Not set (loan history scoring disabled)");
+console.log("USDC Address:", usdcAddress || "Not set (stablecoin scoring disabled)");
 
 // Validation schemas
 const commitScoreSchema = z.object({
@@ -45,8 +49,8 @@ app.get("/score/:address", async (req, res) => {
       return res.status(400).json({ error: "Invalid address" });
     }
 
-    // Collect signals
-    const signals = await collectSignals(address, provider);
+    // Collect signals with contract addresses for on-chain data
+    const signals = await collectSignals(address, provider, coreAddress, usdcAddress);
 
     // Compute score
     const { score, tier } = computeScore(signals);
@@ -56,6 +60,7 @@ app.get("/score/:address", async (req, res) => {
       score,
       tier,
       signals,
+      method: "ml", // Indicate AI/ML-based scoring
     });
   } catch (error) {
     console.error("Error getting score:", error);

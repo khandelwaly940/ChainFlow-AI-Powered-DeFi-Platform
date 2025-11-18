@@ -37,3 +37,8 @@ typechain-types/
 # Misc
 *.tsbuildinfo
 
+# Local-only files (keep locally, don't upload to GitHub)
+LOCAL-DEMO-SETUP.md
+Project Report/
+*.local.md
+

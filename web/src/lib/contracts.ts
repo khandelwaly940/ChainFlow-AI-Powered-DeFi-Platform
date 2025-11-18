@@ -53,6 +53,13 @@ export const LENDING_CORE_ABI = [
     ],
     stateMutability: "view",
     type: "function"
+  },
+  {
+    inputs: [],
+    name: "loanCounter",
+    outputs: [{ name: "", type: "uint256" }],
+    stateMutability: "view",
+    type: "function"
   }
 ] as const;
 

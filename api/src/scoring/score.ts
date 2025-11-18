@@ -1,29 +1,21 @@
 import { ethers } from "ethers";
 import { Signals } from "./signals";
+import { predictCreditScore } from "./ml-model.js";
 
 export interface ScoreResult {
   score: number; // 0-100
   tier: "A" | "B" | "C";
+  method: "ml" | "heuristic"; // Track which method was used
 }
 
 /**
- * Compute credit score from signals
+ * Compute credit score from signals using AI/ML model
  * Tiers: A≥75, B≥55, else C
+ * Uses ML-based prediction with feature interactions
  */
 export function computeScore(signals: Signals): ScoreResult {
-  // Simple scoring algorithm
-  let score = 0;
-
-  // Wallet age contribution (max 30 points)
-  score += Math.min(signals.walletAge / 10, 30);
-
-  // Recent activity contribution (max 30 points)
-  score += Math.min(signals.recentTxCount / 2, 30);
-
-  // Stablecoin holding contribution (max 40 points)
-  score += (signals.stablecoinHoldingScore * 0.4);
-
-  score = Math.round(Math.min(score, 100));
+  // Use ML model for AI-based scoring
+  const score = predictCreditScore(signals);
 
   // Determine tier
   let tier: "A" | "B" | "C";
@@ -35,7 +27,7 @@ export function computeScore(signals: Signals): ScoreResult {
     tier = "C";
   }
 
-  return { score, tier };
+  return { score, tier, method: "ml" };
 }
 
 /**
